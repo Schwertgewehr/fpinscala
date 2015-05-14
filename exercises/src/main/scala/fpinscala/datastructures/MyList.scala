@@ -93,7 +93,17 @@ object MyList { // `List` companion object. Contains functions for creating and 
 
   def length[A](l: MyList[A]): Int = sys.error("todo")
 
-  def foldLeft[A,B](l: MyList[A], z: B)(f: (B, A) => B): B = sys.error("todo")
+  // ex10
+  @tailrec
+  def foldLeft[A,B](l: MyList[A], z: B)(f: (B, A) => B): B = l match {
+    case Nil => z
+    case x :: xs => foldLeft(xs, f(z, x))(f)
+  }
+
+  //ex11
+  def sum3(ints: MyList[Int]): Int = foldLeft(ints, 0)(_ + _)
+
+  def product3(ds: MyList[Double]): Double = foldLeft(ds, 1.0)(_ * _)
 
   def map[A,B](l: MyList[A])(f: A => B): MyList[B] = sys.error("todo")
 }

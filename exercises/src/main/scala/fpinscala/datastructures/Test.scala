@@ -36,4 +36,19 @@ object Test extends App {
   }
   ex05()
 
+  def ex10() = {
+    println("#ex10")
+    println("123 = " + MyList.foldLeft(MyList(1,2,3), "")(_ + _))
+  }
+  ex10()
+
+  def ex11() = {
+    println("#ex11")
+    println("0 = " + MyList.sum3(Nil))
+    println("10 = " + MyList.sum3(MyList(1, 2, 3, 4)))
+    println("1.0 = " + MyList.product3(Nil))
+    println("24.0 = " + MyList.product3(MyList(1.0, 2.0, 3.0, 4.0)))
+  }
+  ex11()
+
 }
