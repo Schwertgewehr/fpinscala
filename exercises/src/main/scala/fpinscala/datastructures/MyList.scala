@@ -105,5 +105,8 @@ object MyList { // `List` companion object. Contains functions for creating and 
 
   def product3(ds: MyList[Double]): Double = foldLeft(ds, 1.0)(_ * _)
 
-  def map[A,B](l: MyList[A])(f: A => B): MyList[B] = sys.error("todo")
+  // ex18
+  def map[A,B](l: MyList[A])(f: A => B): MyList[B] = {
+    foldRight(l, Nil: MyList[B])((a: A, acc: MyList[B]) => ::(f(a), acc))
+  }
 }
