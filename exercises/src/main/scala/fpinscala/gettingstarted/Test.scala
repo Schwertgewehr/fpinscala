@@ -39,5 +39,4 @@ object Test extends App {
     println("1: Long = " + compose(g, f)(1))
   }
   ex05()
-  List(1).foldLeft()
 }
